@@ -97,22 +97,35 @@ def rst2tex(in_path, out_path):
         print("Error: no paper configuration found")
 
     tex_file = os.path.join(out_path, 'paper.tex')
-    with open(tex_file, 'w') as f:
+    with open(tex_file, 'wb') as f:
+        try:
+            tex = tex.encode('utf-8')
+        except (AttributeError, UnicodeDecodeError):
+            pass
         f.write(tex)
 
 
 def tex2pdf(out_path):
 
-    # Sometimes Latex want us to rebuild, because labels have changed.
-    # but we will only try at most 5 times.
+    # Sometimes Latex want us to rebuild because labels have changed.
+    # We will try at most 5 times.
     for i in range(5):
-        out, success = tex2pdf_singlepass(out_path)
-        if not success:
-            # building failed, bail.
+        out, retry = tex2pdf_singlepass(out_path)
+        if not retry:
+            # Building succeeded or failed outright
             break
     return out
 
+
 def tex2pdf_singlepass(out_path):
+    """
+    Returns
+    -------
+    out : str
+        LaTeX output.
+    retry : bool
+        Whether another round of building is needed.
+    """
 
     import subprocess
     command_line = 'pdflatex -halt-on-error paper.tex'
@@ -130,13 +143,13 @@ def tex2pdf_singlepass(out_path):
             )
     out, err = run.communicate()
 
-    if "Fatal" in out or run.returncode:
+    if "Fatal" in out.decode() or run.returncode:
         print("PDFLaTeX error output:")
         print("=" * 80)
-        print(out)
+        print(out.decode())
         print("=" * 80)
         if err:
-            print(err)
+            print(err.decode())
             print("=" * 80)
 
         # Errors, exit early
@@ -155,13 +168,13 @@ def tex2pdf_singlepass(out_path):
                 stderr=subprocess.PIPE,
                 cwd=out_path,
                 )
-        out1, err = run.communicate()
+        out_bib, err = run.communicate()
 
         if err:
             print("Error compiling BiBTeX")
-            return out1, False
+            return out_bib, False
 
-    if "Label(s) may have changed." in out:
+    if "Label(s) may have changed." in out.decode():
         return out, True
 
     return out, False
@@ -181,7 +194,7 @@ def page_count(pdflatex_stdout, paper_dir):
     d = options.cfg2dict(cfgname)
 
     for line in pdflatex_stdout.splitlines():
-        m = regexp.match(line)
+        m = regexp.match(line.decode())
         if m:
             pages = m.groups()[0]
             d.update({'pages': int(pages)})

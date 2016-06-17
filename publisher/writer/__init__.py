@@ -7,8 +7,8 @@ from docutils import nodes
 from docutils.writers.latex2e import (Writer, LaTeXTranslator,
                                       PreambleCmds)
 
-from rstmath import mathEnv
-import code_block
+from .rstmath import mathEnv
+from . import code_block
 
 from options import options
 
@@ -110,7 +110,7 @@ class Translator(LaTeXTranslator):
         elif self.current_field == 'video':
             self.video_url = text
         elif self.current_field == 'bibliography':
-            self.bibtex = ['alpha', text]
+            self.bibtex = ['alphaurl', text]
             self._use_latex_citations = True
             self._bibitems = ['', '']
             self.bibliography = text
