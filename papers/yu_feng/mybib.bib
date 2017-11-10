@@ -7,7 +7,7 @@ year={1991+},
 
 @misc{libarchive,
     author ={{Tim Kientzle and contributors}},
-    title = {libarchive: Multi-format archive and compression library}
+    title = {libarchive: Multi-format archive and compression library},
     howpublished = {\url{http://libarchive.org}},
     year={2009},
 }
@@ -28,21 +28,41 @@ keywords = "Python",
 keywords = "MPI",
 keywords = "PETSc "
 }
+
 @article{miller2002pympi,
   title={pyMPI -- An introduction to parallel Python using MPI},
   author = {Miller, Patrick},
   year={2002}
 }
 
-@Article{pytrilinos,
-  author      = {M. Sala and W. Spotz,  and M. Heroux},
-  title       = {{PyTrilinos}: High-Performance Distributed-Memory Solvers for {Python}},
-  journal     = {ACM Transactions on Mathematical Software (TOMS)},
-  year        = {2008},
-  month       = {March},
-  volume      = {34},
-  issue       = {2};
-}
+@book{Quinn:2003:PPC:1211440,
+ author = {Quinn, Michael J.},
+ title = {Parallel Programming in C with MPI and OpenMP},
+ year = {2003},
+ isbn = {0071232656},
+ publisher = {McGraw-Hill Education Group},
+} 
+
+
+@article{Spotz:2012:PRA:2590240.2590247,
+ author = {Spotz, William F.},
+ title = {PyTrilinos: Recent Advances in the Python Interface to Trilinos},
+ journal = {Sci. Program.},
+ issue_date = {July 2012},
+ volume = {20},
+ number = {3},
+ month = jul,
+ year = {2012},
+ issn = {1058-9244},
+ pages = {311--325},
+ numpages = {15},
+ url = {http://dx.doi.org/10.1155/2012/965812},
+ doi = {10.1155/2012/965812},
+ acmid = {2590247},
+ publisher = {IOS Press},
+ address = {Amsterdam, The Netherlands, The Netherlands},
+ keywords = {Eigensolvers, Nonlinear Solvers, Parallel Programming, Partitioning, Preconditioners, Python, Sparse Linear Algebra, Trilinos},
+} 
 
 @misc{slither,
 author = {Bradley M. Froehle},
@@ -127,23 +147,23 @@ year={2012},
 	url = {https://github.com/CSC-IT-Center-for-Science/scalable-python},
 	year={2014}
 }
+
 @article{Enkovaara201117,
-title = "\{GPAW\} - massively parallel electronic structure calculations with Python-based software ",
-journal = "Procedia Computer Science ",
-volume = "4",
-number = "",
-pages = "17 - 25",
-year = "2011",
-note = "Proceedings of the International Conference on Computational Science, \{ICCS\} 2011 ",
-issn = "1877-0509",
-doi = "http://dx.doi.org/10.1016/j.procs.2011.04.003",
-url = "http://www.sciencedirect.com/science/article/pii/S1877050911000615",
-author = "Jussi Enkovaara and Nichols A. Romero and Sameer Shende and Jens J. Mortensen",
-keywords = "Python",
-keywords = "Numpy",
-keywords = "MPI",
-keywords = "Density-functional theory ",
-abstract = "Electronic structure calculations are a widely used tool in materials science and large consumer of supercomputing resources. Traditionally, the software packages for these kind of simulations have been implemented in compiled languages, where Fortran in its different versions has been the most popular choice. While dynamic, interpreted languages, such as Python, can increase the effciency of programmer, they cannot compete directly with the raw performance of compiled languages. However, by using an interpreted language together with a compiled language, it is possible to have most of the productivity enhancing features together with a good numerical performance. We have used this approach in implementing an electronic structure simulation software \{GPAW\} using the combination of Python and C programming languages. While the chosen approach works well in standard workstations and Unix environments, massively parallel supercomputing systems can present some challenges in porting, debugging and profiling the software. In this paper we describe some details of the implementation and discuss the advantages and challenges of the combined Python/C approach. We show that despite the challenges it is possible to obtain good numerical performance and good parallel scalability with Python based software. "
+    title = {GPAW - massively parallel electronic structure calculations with Python-based software},
+    journal = "Procedia Computer Science ",
+    volume = "4",
+    number = "",
+    pages = "17 - 25",
+    year = "2011",
+    note = "Proceedings of the International Conference on Computational Science, ICCS 2011 ",
+    issn = "1877-0509",
+    doi = "http://dx.doi.org/10.1016/j.procs.2011.04.003",
+    url = "http://www.sciencedirect.com/science/article/pii/S1877050911000615",
+    author = "Jussi Enkovaara and Nichols A. Romero and Sameer Shende and Jens J. Mortensen",
+    keywords = "Python",
+    keywords = "Numpy",
+    keywords = "MPI",
+    keywords = "Density-functional theory ",
 }
 
 @misc{asher2012,
@@ -155,14 +175,16 @@ abstract = "Electronic structure calculations are a widely used tool in material
 @misc{bwp,
 	title={bwpy: Python on BlueWaters},
     author = {Colin MacLean and NCSA staff.},
-    url = {https://bluewaters.ncsa.illinois.edu/python}
+    url = {https://bluewaters.ncsa.illinois.edu/python},
     year={2014},
 }
 @misc{pynamic,
 	title={The Python Dynamic Benchmark},
     author = {Gregory L. Lee and Dong H. Ahn and Bronis R. de Supinski and John Gyllenhaal and Patrick Miller},
-    url = {https://codesign.llnl.gov/pynamic.php}
+    url = {https://codesign.llnl.gov/pynamic.php},
     year={2014},
+}
+
 @misc{shifter,
 	author = {Doug Jacobsen and Shane Canon and Lisa Gerhardt and Deborah Bard},
     title={Shifter: Bringing Linux containers to HPC},
@@ -227,4 +249,11 @@ archivePrefix = "arXiv",
     author = {{Continuum Analytics, Inc.}},
     url={http://conda.pydata.org/docs/},
     year={2015},
+}
+
+@ARTICLE{pep302,
+    title={PEP 302 -- New Import Hooks},
+    author = {{van Rossum, Just and Moore, Paul }},
+    url={https://www.python.org/dev/peps/pep-0302/},
+    year={2002}
 }
